@@ -1,1 +1,7 @@
+# chatgpt域名规则
 
+# DOMAIN-SUFFIX
+DOMAIN-SUFFIX,openai.com
+# DOMAIN-KEYWORD
+DOMAIN-KEYWORD,openai
+DOMAIN-KEYWORD,chatgpt
