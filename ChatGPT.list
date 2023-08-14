@@ -1,6 +1,7 @@
 ;ChatGPT域名规则
 
-# DOMAIN-SUFFIX
+DOMAIN-SUFFIX,ai.com
+DOMAIN-SUFFIX,challenges.cloudflare.com
 DOMAIN-SUFFIX,openai.com
 # DOMAIN-KEYWORD
 DOMAIN-KEYWORD,openai
