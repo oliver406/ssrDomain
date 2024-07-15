@@ -37,6 +37,8 @@ DOMAIN-SUFFIX,agodavipbook.top
 DOMAIN-SUFFIX,uniapp.dcloud.io
 DOMAIN-SUFFIX,dev.dcloud.net.cn
 DOMAIN-SUFFIX,www.dcloud.io
+DOMAIN-SUFFIX,hx.dcloud.net.cn
+DOMAIN-SUFFIX,dcloud.net.cn
 DOMAIN-SUFFIX,openapi.dcloud.net.cn
 DOMAIN-SUFFIX,service.dcloud.net.cn
 DOMAIN-SUFFIX,download.dcloud.net.cn
@@ -70,6 +72,7 @@ DOMAIN-KEYWORD,kj51
 DOMAIN-KEYWORD,51h5
 DOMAIN-KEYWORD,51la
 DOMAIN-KEYWORD,aliyun
+DOMAIN-KEYWORD,dcloud
 
 # DST-PORT
 DST-PORT,42005,proxy
