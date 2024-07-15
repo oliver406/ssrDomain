@@ -34,6 +34,12 @@ DOMAIN-SUFFIX,aliyun.com
 DOMAIN-SUFFIX,umeng.com
 DOMAIN-SUFFIX,51.la
 DOMAIN-SUFFIX,agodavipbook.top
+DOMAIN-SUFFIX,uniapp.dcloud.io
+DOMAIN-SUFFIX,dev.dcloud.net.cn
+DOMAIN-SUFFIX,www.dcloud.io
+DOMAIN-SUFFIX,openapi.dcloud.net.cn
+DOMAIN-SUFFIX,service.dcloud.net.cn
+DOMAIN-SUFFIX,download.dcloud.net.cn
 
 # DOMAIN-KEYWORD
 DOMAIN-KEYWORD,agodavipbook
