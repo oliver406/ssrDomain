@@ -42,6 +42,7 @@ DOMAIN-SUFFIX,dcloud.net.cn
 DOMAIN-SUFFIX,openapi.dcloud.net.cn
 DOMAIN-SUFFIX,service.dcloud.net.cn
 DOMAIN-SUFFIX,download.dcloud.net.cn
+DOMAIN-SUFFIX,api.aiboyu.cyou
 
 # DOMAIN-KEYWORD
 DOMAIN-KEYWORD,agodavipbook
@@ -74,6 +75,11 @@ DOMAIN-KEYWORD,51la
 DOMAIN-KEYWORD,aliyun
 DOMAIN-KEYWORD,dcloud
 
+# IP-CIDR
+IP-CIDR,121.127.233.148
+IP-CIDR,38.150.25.141
+IP-CIDR,121.54.173.87
+
 # DST-PORT
 DST-PORT,42005,proxy
 DST-PORT,11569,proxy
@@ -88,3 +94,7 @@ DST-PORT,26830,proxy
 DST-PORT,29961,proxy
 DST-PORT,29852,proxy
 DST-PORT,8888,proxy
+DST-PORT,16530,proxy
+DST-PORT,20670,proxy
+DST-PORT,20034,proxy
+DST-PORT,5200,proxy
