@@ -203,17 +203,24 @@ rules:
   # ===== AI =====
   - "DOMAIN-SUFFIX,chatgpt.com,💬 OpenAI"
   - "DOMAIN-SUFFIX,openai.com,💬 OpenAI"
+  - "DOMAIN-SUFFIX,openai.ai,💬 OpenAI"
   - "DOMAIN-SUFFIX,oaistatic.com,💬 OpenAI"
   - "DOMAIN-SUFFIX,oaiusercontent.com,💬 OpenAI"
+  - "DOMAIN-KEYWORD,chatgpt,💬 OpenAI"
+  - "DOMAIN-KEYWORD,openai,💬 OpenAI"
 
   - "DOMAIN-SUFFIX,anthropic.com,🧠 Claude"
   - "DOMAIN-SUFFIX,claude.ai,🧠 Claude"
+  - "DOMAIN-SUFFIX,claude.com,🧠 Claude"
+  - "DOMAIN-KEYWORD,claude,🧠 Claude"
 
   - "DOMAIN-SUFFIX,cursor.com,🖱️ Cursor"
   - "DOMAIN-SUFFIX,cursor.sh,🖱️ Cursor"
+  - "DOMAIN-KEYWORD,cursor,🖱️ Cursor"
 
   - "DOMAIN-SUFFIX,gemini.google.com,✨ Gemini"
   - "DOMAIN-SUFFIX,generativelanguage.googleapis.com,✨ Gemini"
+  - "DOMAIN-KEYWORD,gemini,✨ Gemini"
 
   # ===== 兜底 =====
   - "GEOIP,CN,🎯 全球直连"
