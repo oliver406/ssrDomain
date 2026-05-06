@@ -1,5 +1,7 @@
-proxy-groups: #!replace
-  # ===== 总入口 =====
+# =========================
+# Proxy Groups
+# =========================
+proxy-groups:
   - name: 🚀 节点选择
     type: select
     proxies:
@@ -8,9 +10,7 @@ proxy-groups: #!replace
       - 🇺🇸 美国节点
       - 🇭🇰 香港节点
       - 🇯🇵 日本节点
-      - 🇨🇳 台湾节点
-      - 🇰🇷 韩国节点
-      - 🌍 其他国家节点
+      - 🌍 其他国家
       - 🚀 手动切换
       - DIRECT
 
@@ -21,31 +21,26 @@ proxy-groups: #!replace
   - name: ♻️ 自动选择
     type: url-test
     include-all: true
+    url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
-    url: https://www.gstatic.com/generate_204
 
   # ===== AI =====
   - name: 🤖 AI服务
     type: select
     proxies:
-      - 🇸🇬 狮城节点
       - 🇺🇸 美国节点
-      - 🌍 其他国家节点
+      - 🇸🇬 狮城节点
       - ♻️ 自动选择
       - 🚀 节点选择
-      - 🚀 手动切换
       - DIRECT
 
   - name: 💬 OpenAI
     type: select
     proxies:
       - 🤖 AI服务
-      - 🇸🇬 狮城节点
       - 🇺🇸 美国节点
-      - 🌍 其他国家节点
-      - ♻️ 自动选择
-      - 🚀 手动切换
+      - 🇸🇬 狮城节点
       - DIRECT
 
   - name: 🧠 Claude
@@ -53,21 +48,6 @@ proxy-groups: #!replace
     proxies:
       - 🇺🇸 美国节点
       - 🤖 AI服务
-      - 🇸🇬 狮城节点
-      - 🌍 其他国家节点
-      - ♻️ 自动选择
-      - 🚀 手动切换
-      - DIRECT
-
-  - name: 🖱️ Cursor
-    type: select
-    proxies:
-      - 🇺🇸 美国节点
-      - 🤖 AI服务
-      - 🇸🇬 狮城节点
-      - 🌍 其他国家节点
-      - ♻️ 自动选择
-      - 🚀 手动切换
       - DIRECT
 
   - name: ✨ Gemini
@@ -75,76 +55,41 @@ proxy-groups: #!replace
     proxies:
       - 🇺🇸 美国节点
       - 🤖 AI服务
-      - 🇸🇬 狮城节点
-      - 🌍 其他国家节点
-      - ♻️ 自动选择
-      - 🚀 手动切换
       - DIRECT
 
-  # ===== 常规业务 =====
-  - name: 📲 电报消息
+  # ===== Telegram =====
+  - name: 📲 Telegram
     type: select
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
-      - 🇸🇬 狮城节点
-      - 🇺🇸 美国节点
-      - 🌍 其他国家节点
-      - 🚀 手动切换
       - DIRECT
 
-  - name: 📹 油管视频
+  # ===== 流媒体 =====
+  - name: 📹 YouTube
     type: select
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
-      - 🇸🇬 狮城节点
-      - 🇺🇸 美国节点
-      - 🇭🇰 香港节点
-      - 🇯🇵 日本节点
-      - 🌍 其他国家节点
-      - 🚀 手动切换
-      - DIRECT
 
-  - name: 🎥 奈飞视频
+  - name: 🎥 Netflix
     type: select
     proxies:
       - 🇺🇸 美国节点
       - 🇸🇬 狮城节点
-      - 🇭🇰 香港节点
-      - 🇯🇵 日本节点
-      - 🌍 其他国家节点
       - 🚀 节点选择
-      - ♻️ 自动选择
-      - 🚀 手动切换
-      - DIRECT
 
-  - name: 🌍 国外媒体
+  # ===== 其他 =====
+  - name: 🌍 国外流量
     type: select
     proxies:
       - 🚀 节点选择
       - ♻️ 自动选择
-      - 🇺🇸 美国节点
-      - 🇸🇬 狮城节点
-      - 🇭🇰 香港节点
-      - 🇯🇵 日本节点
-      - 🌍 其他国家节点
-      - 🚀 手动切换
-      - DIRECT
 
-  - name: 🌏 国内媒体
+  - name: 🌏 国内直连
     type: select
     proxies:
       - DIRECT
-      - 🇭🇰 香港节点
-      - 🇸🇬 狮城节点
-      - 🚀 手动切换
-
-  - name: 🎯 全球直连
-    type: select
-    proxies:
-      - DIRECT
-      - 🚀 节点选择
 
   - name: 🛑 广告拦截
     type: select
@@ -156,176 +101,110 @@ proxy-groups: #!replace
     type: select
     proxies:
       - 🚀 节点选择
-      - ♻️ 自动选择
-      - 🇺🇸 美国节点
-      - 🇸🇬 狮城节点
-      - 🌍 其他国家节点
       - DIRECT
 
   # ===== 地区池 =====
   - name: 🇺🇸 美国节点
     type: url-test
     include-all: true
-    filter: "(?i)(美|美国|US|USA|United States|America|Los Angeles|LA|San Jose|San Francisco|Seattle|Chicago|Dallas|New York|纽约|洛杉矶|硅谷|圣何塞|旧金山|西雅图|芝加哥|达拉斯)"
-    interval: 300
-    tolerance: 50
+    filter: "(?i)(US|USA|America|美国|洛杉矶|硅谷|旧金山|西雅图|纽约)"
     url: https://www.gstatic.com/generate_204
+    interval: 300
 
   - name: 🇸🇬 狮城节点
     type: url-test
     include-all: true
-    filter: "(?i)(新加坡|狮城|坡|SG|Singapore)"
-    interval: 300
-    tolerance: 50
+    filter: "(?i)(Singapore|SG|新加坡)"
     url: https://www.gstatic.com/generate_204
+    interval: 300
 
   - name: 🇭🇰 香港节点
     type: url-test
     include-all: true
-    filter: "(?i)(香港|港|HK|Hong Kong|HKG)"
-    interval: 300
-    tolerance: 50
+    filter: "(?i)(Hong Kong|HK|香港)"
     url: https://www.gstatic.com/generate_204
+    interval: 300
 
   - name: 🇯🇵 日本节点
     type: url-test
     include-all: true
-    filter: "(?i)(日本|日|JP|Japan|Tokyo|Osaka|东京|大阪)"
-    interval: 300
-    tolerance: 50
+    filter: "(?i)(Japan|JP|东京|大阪)"
     url: https://www.gstatic.com/generate_204
+    interval: 300
 
-  - name: 🇨🇳 台湾节点
+  - name: 🌍 其他国家
     type: url-test
     include-all: true
-    filter: "(?i)(台湾|台|TW|Taiwan|Taipei|台北)"
-    interval: 300
-    tolerance: 50
+    filter: "(?i)(UK|Germany|France|Canada|Australia|India)"
     url: https://www.gstatic.com/generate_204
-
-  - name: 🇰🇷 韩国节点
-    type: url-test
-    include-all: true
-    filter: "(?i)(韩国|韩|KR|Korea|Seoul|首尔)"
     interval: 300
-    tolerance: 50
-    url: https://www.gstatic.com/generate_204
-
-  - name: 🌍 其他国家节点
-    type: url-test
-    include-all: true
-    filter: "(?i)(UK|United Kingdom|英国|Germany|德国|France|法国|Canada|加拿大|Australia|澳大利亚|India|印度|Thailand|泰国|Vietnam|越南|Malaysia|马来西亚|Netherlands|荷兰|Turkey|土耳其|Brazil|巴西|Philippines|菲律宾|Indonesia|印尼)"
-    interval: 300
-    tolerance: 50
-    url: https://www.gstatic.com/generate_204
 
 
-rules: #!replace
-  # ===== AI / OpenAI =====
-  - DOMAIN-SUFFIX,chatgpt.com,💬 OpenAI
+# =========================
+# Rules（重点）
+# =========================
+rules:
+
+  # =====================
+  # 🚨 Apple 推送（最高优先级）
+  # =====================
+  - DOMAIN-SUFFIX,push.apple.com,DIRECT
+  - DOMAIN-SUFFIX,icloud.com,DIRECT
+  - DOMAIN-SUFFIX,apple.com,DIRECT
+  - DOMAIN-SUFFIX,me.com,DIRECT
+  - IP-CIDR,17.0.0.0/8,DIRECT,no-resolve
+
+  # =====================
+  # 🤖 AI
+  # =====================
   - DOMAIN-SUFFIX,openai.com,💬 OpenAI
-  - DOMAIN-SUFFIX,openai.ai,💬 OpenAI
+  - DOMAIN-SUFFIX,chatgpt.com,💬 OpenAI
   - DOMAIN-SUFFIX,oaistatic.com,💬 OpenAI
   - DOMAIN-SUFFIX,oaiusercontent.com,💬 OpenAI
-  - DOMAIN-SUFFIX,auth0.openai.com,💬 OpenAI
-  - DOMAIN-KEYWORD,chatgpt,💬 OpenAI
-  - DOMAIN-KEYWORD,openai,💬 OpenAI
 
-  # ===== Claude =====
   - DOMAIN-SUFFIX,anthropic.com,🧠 Claude
   - DOMAIN-SUFFIX,claude.ai,🧠 Claude
-  - DOMAIN-SUFFIX,claude.com,🧠 Claude
-  - DOMAIN-KEYWORD,anthropic,🧠 Claude
-  - DOMAIN-KEYWORD,claude,🧠 Claude
 
-  # ===== Cursor =====
-  - DOMAIN-SUFFIX,cursor.com,🖱️ Cursor
-  - DOMAIN-SUFFIX,cursor.sh,🖱️ Cursor
-  - DOMAIN-SUFFIX,anysphere.co,🖱️ Cursor
-  - DOMAIN-KEYWORD,cursor,🖱️ Cursor
-  - DOMAIN-KEYWORD,anysphere,🖱️ Cursor
-
-  # ===== Gemini / Google AI =====
   - DOMAIN-SUFFIX,gemini.google.com,✨ Gemini
-  - DOMAIN-SUFFIX,generativelanguage.googleapis.com,✨ Gemini
-  - DOMAIN-SUFFIX,aistudio.google.com,✨ Gemini
   - DOMAIN-SUFFIX,ai.google.dev,✨ Gemini
-  - DOMAIN-KEYWORD,gemini,✨ Gemini
 
-  # ===== Telegram =====
-  - DOMAIN-SUFFIX,t.me,📲 电报消息
-  - DOMAIN-SUFFIX,tdesktop.com,📲 电报消息
-  - DOMAIN-SUFFIX,telegram.org,📲 电报消息
-  - DOMAIN-SUFFIX,telegram.me,📲 电报消息
-  - DOMAIN-SUFFIX,telegra.ph,📲 电报消息
-  - IP-CIDR,91.108.4.0/22,📲 电报消息,no-resolve
-  - IP-CIDR,91.108.8.0/22,📲 电报消息,no-resolve
-  - IP-CIDR,91.108.12.0/22,📲 电报消息,no-resolve
-  - IP-CIDR,91.108.16.0/22,📲 电报消息,no-resolve
-  - IP-CIDR,91.108.56.0/22,📲 电报消息,no-resolve
-  - IP-CIDR,149.154.160.0/20,📲 电报消息,no-resolve
+  # =====================
+  # 📲 Telegram
+  # =====================
+  - DOMAIN-SUFFIX,telegram.org,📲 Telegram
+  - DOMAIN-SUFFIX,t.me,📲 Telegram
+  - DOMAIN-SUFFIX,telegra.ph,📲 Telegram
+  - IP-CIDR,149.154.0.0/16,📲 Telegram,no-resolve
 
-  # ===== YouTube =====
-  - DOMAIN-SUFFIX,youtube.com,📹 油管视频
-  - DOMAIN-SUFFIX,youtu.be,📹 油管视频
-  - DOMAIN-SUFFIX,ytimg.com,📹 油管视频
-  - DOMAIN-SUFFIX,googlevideo.com,📹 油管视频
-  - DOMAIN-SUFFIX,youtubei.googleapis.com,📹 油管视频
-  - DOMAIN-SUFFIX,yt3.ggpht.com,📹 油管视频
+  # =====================
+  # 🎬 流媒体
+  # =====================
+  - DOMAIN-SUFFIX,youtube.com,📹 YouTube
+  - DOMAIN-SUFFIX,googlevideo.com,📹 YouTube
 
-  # ===== Netflix =====
-  - DOMAIN-SUFFIX,netflix.com,🎥 奈飞视频
-  - DOMAIN-SUFFIX,netflix.net,🎥 奈飞视频
-  - DOMAIN-SUFFIX,nflxext.com,🎥 奈飞视频
-  - DOMAIN-SUFFIX,nflximg.com,🎥 奈飞视频
-  - DOMAIN-SUFFIX,nflximg.net,🎥 奈飞视频
-  - DOMAIN-SUFFIX,nflxso.net,🎥 奈飞视频
-  - DOMAIN-SUFFIX,nflxvideo.net,🎥 奈飞视频
+  - DOMAIN-SUFFIX,netflix.com,🎥 Netflix
+  - DOMAIN-SUFFIX,nflxvideo.net,🎥 Netflix
 
-  # ===== 国外媒体 =====
-  - DOMAIN-SUFFIX,google.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,gstatic.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,googleapis.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,ggpht.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,facebook.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,instagram.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,threads.net,🌍 国外媒体
-  - DOMAIN-SUFFIX,twitter.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,x.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,tiktok.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,tiktokcdn.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,discord.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,discordapp.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,discord.gg,🌍 国外媒体
-  - DOMAIN-SUFFIX,reddit.com,🌍 国外媒体
-  - DOMAIN-SUFFIX,redd.it,🌍 国外媒体
+  # =====================
+  # 🌍 国外常规
+  # =====================
+  - DOMAIN-SUFFIX,google.com,🌍 国外流量
+  - DOMAIN-SUFFIX,facebook.com,🌍 国外流量
+  - DOMAIN-SUFFIX,instagram.com,🌍 国外流量
+  - DOMAIN-SUFFIX,x.com,🌍 国外流量
 
-  # ===== 国内媒体 / 国内服务 =====
-  - DOMAIN-SUFFIX,bilibili.com,🌏 国内媒体
-  - DOMAIN-SUFFIX,biliapi.com,🌏 国内媒体
-  - DOMAIN-SUFFIX,biliapi.net,🌏 国内媒体
-  - DOMAIN-SUFFIX,hdslb.com,🌏 国内媒体
-  - DOMAIN-SUFFIX,iqiyi.com,🌏 国内媒体
-  - DOMAIN-SUFFIX,iqiyipic.com,🌏 国内媒体
-  - DOMAIN-SUFFIX,youku.com,🌏 国内媒体
-  - DOMAIN-SUFFIX,ykimg.com,🌏 国内媒体
-  - DOMAIN-SUFFIX,qq.com,🌏 国内媒体
-  - DOMAIN-SUFFIX,weixin.qq.com,🌏 国内媒体
-  - DOMAIN-SUFFIX,wechat.com,🌏 国内媒体
-  - DOMAIN-SUFFIX,douyin.com,🌏 国内媒体
-  - DOMAIN-SUFFIX,douyincdn.com,🌏 国内媒体
-  - DOMAIN-SUFFIX,kuaishou.com,🌏 国内媒体
-
-  # ===== 广告拦截，保守版 =====
+  # =====================
+  # 🛑 广告
+  # =====================
   - DOMAIN-SUFFIX,doubleclick.net,🛑 广告拦截
   - DOMAIN-SUFFIX,googlesyndication.com,🛑 广告拦截
-  - DOMAIN-SUFFIX,googleadservices.com,🛑 广告拦截
-  - DOMAIN-SUFFIX,adservice.google.com,🛑 广告拦截
-  - DOMAIN-SUFFIX,adsystem.com,🛑 广告拦截
-  - DOMAIN-KEYWORD,adservice,🛑 广告拦截
 
-  # ===== 国内直连 =====
-  - GEOIP,CN,🎯 全球直连
+  # =====================
+  # 🇨🇳 国内
+  # =====================
+  - GEOIP,CN,DIRECT
 
-  # ===== 最终兜底 =====
+  # =====================
+  # 🐟 兜底
+  # =====================
   - MATCH,🐟 漏网之鱼
