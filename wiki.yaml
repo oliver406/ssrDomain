@@ -1,5 +1,7 @@
-proxy-groups: #!replace
-
+proxy-groups:
+  # =========================
+  # 🌐 主入口
+  # =========================
   - name: PROXY
     type: select
     proxies:
@@ -12,6 +14,9 @@ proxy-groups: #!replace
       - KR
       - DIRECT
 
+  # =========================
+  # ⚡ 自动测速
+  # =========================
   - name: AUTO
     type: url-test
     include-all: true
@@ -19,7 +24,9 @@ proxy-groups: #!replace
     interval: 300
     tolerance: 50
 
-  # ===== 节点池 =====
+  # =========================
+  # 🌍 国家节点池
+  # =========================
   - name: US
     type: url-test
     include-all: true
@@ -62,9 +69,58 @@ proxy-groups: #!replace
     url: https://www.gstatic.com/generate_204
     interval: 300
 
-  # ===== fallback =====
+  # =========================
+  # 🔚 兜底
+  # =========================
   - name: FINAL
     type: select
     proxies:
       - PROXY
       - DIRECT
+
+
+rules:
+  # =====================================================
+  # 🍎 iOS 推送核心保护（绝对必须 DIRECT）
+  # =====================================================
+  - DOMAIN-SUFFIX,push.apple.com,DIRECT
+  - DOMAIN-SUFFIX,icloud.com,DIRECT
+  - DOMAIN-SUFFIX,apple.com,DIRECT
+  - DOMAIN-SUFFIX,itunes.apple.com,DIRECT
+  - DOMAIN-SUFFIX,me.com,DIRECT
+  - DOMAIN-SUFFIX,gateway.push.apple.com,DIRECT
+  - DOMAIN-SUFFIX,api.push.apple.com,DIRECT
+  - DOMAIN-SUFFIX,init.push.apple.com,DIRECT
+
+  # Apple Push IP 段（关键）
+  - IP-CIDR,17.0.0.0/8,DIRECT,no-resolve
+
+  # =====================================================
+  # 📱 Telegram（稳定推送）
+  # =====================================================
+  - DOMAIN-SUFFIX,telegram.org,PROXY
+  - DOMAIN-SUFFIX,t.me,PROXY
+  - DOMAIN-SUFFIX,telegra.ph,PROXY
+
+  # =====================================================
+  # 🌍 国外常用服务
+  # =====================================================
+  - DOMAIN-SUFFIX,google.com,PROXY
+  - DOMAIN-SUFFIX,googleapis.com,PROXY
+  - DOMAIN-SUFFIX,gstatic.com,PROXY
+  - DOMAIN-SUFFIX,facebook.com,PROXY
+  - DOMAIN-SUFFIX,instagram.com,PROXY
+  - DOMAIN-SUFFIX,x.com,PROXY
+  - DOMAIN-SUFFIX,reddit.com,PROXY
+  - DOMAIN-SUFFIX,discord.com,PROXY
+  - DOMAIN-SUFFIX,youtube.com,PROXY
+
+  # =====================================================
+  # 🇨🇳 国内直连
+  # =====================================================
+  - GEOIP,CN,DIRECT
+
+  # =====================================================
+  # 🌐 最终兜底
+  # =====================================================
+  - MATCH,FINAL
