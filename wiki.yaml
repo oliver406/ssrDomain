@@ -1,210 +1,70 @@
-# =========================
-# Proxy Groups
-# =========================
-proxy-groups:
-  - name: 🚀 节点选择
+proxy-groups: #!replace
+
+  - name: PROXY
     type: select
     proxies:
-      - ♻️ 自动选择
-      - 🇸🇬 狮城节点
-      - 🇺🇸 美国节点
-      - 🇭🇰 香港节点
-      - 🇯🇵 日本节点
-      - 🌍 其他国家
-      - 🚀 手动切换
+      - AUTO
+      - US
+      - SG
+      - HK
+      - JP
+      - TW
+      - KR
       - DIRECT
 
-  - name: 🚀 手动切换
-    type: select
-    include-all: true
-
-  - name: ♻️ 自动选择
+  - name: AUTO
     type: url-test
     include-all: true
     url: https://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
-  # ===== AI =====
-  - name: 🤖 AI服务
-    type: select
-    proxies:
-      - 🇺🇸 美国节点
-      - 🇸🇬 狮城节点
-      - ♻️ 自动选择
-      - 🚀 节点选择
-      - DIRECT
-
-  - name: 💬 OpenAI
-    type: select
-    proxies:
-      - 🤖 AI服务
-      - 🇺🇸 美国节点
-      - 🇸🇬 狮城节点
-      - DIRECT
-
-  - name: 🧠 Claude
-    type: select
-    proxies:
-      - 🇺🇸 美国节点
-      - 🤖 AI服务
-      - DIRECT
-
-  - name: ✨ Gemini
-    type: select
-    proxies:
-      - 🇺🇸 美国节点
-      - 🤖 AI服务
-      - DIRECT
-
-  # ===== Telegram =====
-  - name: 📲 Telegram
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ♻️ 自动选择
-      - DIRECT
-
-  # ===== 流媒体 =====
-  - name: 📹 YouTube
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ♻️ 自动选择
-
-  - name: 🎥 Netflix
-    type: select
-    proxies:
-      - 🇺🇸 美国节点
-      - 🇸🇬 狮城节点
-      - 🚀 节点选择
-
-  # ===== 其他 =====
-  - name: 🌍 国外流量
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - ♻️ 自动选择
-
-  - name: 🌏 国内直连
-    type: select
-    proxies:
-      - DIRECT
-
-  - name: 🛑 广告拦截
-    type: select
-    proxies:
-      - REJECT
-      - DIRECT
-
-  - name: 🐟 漏网之鱼
-    type: select
-    proxies:
-      - 🚀 节点选择
-      - DIRECT
-
-  # ===== 地区池 =====
-  - name: 🇺🇸 美国节点
+  # ===== 节点池 =====
+  - name: US
     type: url-test
     include-all: true
-    filter: "(?i)(US|USA|America|美国|洛杉矶|硅谷|旧金山|西雅图|纽约)"
+    filter: "(?i)(US|USA|America|美国|洛杉矶|纽约|硅谷)"
     url: https://www.gstatic.com/generate_204
     interval: 300
 
-  - name: 🇸🇬 狮城节点
+  - name: SG
     type: url-test
     include-all: true
-    filter: "(?i)(Singapore|SG|新加坡)"
+    filter: "(?i)(SG|Singapore|新加坡)"
     url: https://www.gstatic.com/generate_204
     interval: 300
 
-  - name: 🇭🇰 香港节点
+  - name: HK
     type: url-test
     include-all: true
-    filter: "(?i)(Hong Kong|HK|香港)"
+    filter: "(?i)(HK|Hong Kong|香港)"
     url: https://www.gstatic.com/generate_204
     interval: 300
 
-  - name: 🇯🇵 日本节点
+  - name: JP
     type: url-test
     include-all: true
-    filter: "(?i)(Japan|JP|东京|大阪)"
+    filter: "(?i)(JP|Japan|日本|东京|大阪)"
     url: https://www.gstatic.com/generate_204
     interval: 300
 
-  - name: 🌍 其他国家
+  - name: TW
     type: url-test
     include-all: true
-    filter: "(?i)(UK|Germany|France|Canada|Australia|India)"
+    filter: "(?i)(TW|Taiwan|台湾)"
     url: https://www.gstatic.com/generate_204
     interval: 300
 
+  - name: KR
+    type: url-test
+    include-all: true
+    filter: "(?i)(KR|Korea|韩国|首尔)"
+    url: https://www.gstatic.com/generate_204
+    interval: 300
 
-# =========================
-# Rules（重点）
-# =========================
-rules:
-
-  # =====================
-  # 🚨 Apple 推送（最高优先级）
-  # =====================
-  - DOMAIN-SUFFIX,push.apple.com,DIRECT
-  - DOMAIN-SUFFIX,icloud.com,DIRECT
-  - DOMAIN-SUFFIX,apple.com,DIRECT
-  - DOMAIN-SUFFIX,me.com,DIRECT
-  - IP-CIDR,17.0.0.0/8,DIRECT,no-resolve
-
-  # =====================
-  # 🤖 AI
-  # =====================
-  - DOMAIN-SUFFIX,openai.com,💬 OpenAI
-  - DOMAIN-SUFFIX,chatgpt.com,💬 OpenAI
-  - DOMAIN-SUFFIX,oaistatic.com,💬 OpenAI
-  - DOMAIN-SUFFIX,oaiusercontent.com,💬 OpenAI
-
-  - DOMAIN-SUFFIX,anthropic.com,🧠 Claude
-  - DOMAIN-SUFFIX,claude.ai,🧠 Claude
-
-  - DOMAIN-SUFFIX,gemini.google.com,✨ Gemini
-  - DOMAIN-SUFFIX,ai.google.dev,✨ Gemini
-
-  # =====================
-  # 📲 Telegram
-  # =====================
-  - DOMAIN-SUFFIX,telegram.org,📲 Telegram
-  - DOMAIN-SUFFIX,t.me,📲 Telegram
-  - DOMAIN-SUFFIX,telegra.ph,📲 Telegram
-  - IP-CIDR,149.154.0.0/16,📲 Telegram,no-resolve
-
-  # =====================
-  # 🎬 流媒体
-  # =====================
-  - DOMAIN-SUFFIX,youtube.com,📹 YouTube
-  - DOMAIN-SUFFIX,googlevideo.com,📹 YouTube
-
-  - DOMAIN-SUFFIX,netflix.com,🎥 Netflix
-  - DOMAIN-SUFFIX,nflxvideo.net,🎥 Netflix
-
-  # =====================
-  # 🌍 国外常规
-  # =====================
-  - DOMAIN-SUFFIX,google.com,🌍 国外流量
-  - DOMAIN-SUFFIX,facebook.com,🌍 国外流量
-  - DOMAIN-SUFFIX,instagram.com,🌍 国外流量
-  - DOMAIN-SUFFIX,x.com,🌍 国外流量
-
-  # =====================
-  # 🛑 广告
-  # =====================
-  - DOMAIN-SUFFIX,doubleclick.net,🛑 广告拦截
-  - DOMAIN-SUFFIX,googlesyndication.com,🛑 广告拦截
-
-  # =====================
-  # 🇨🇳 国内
-  # =====================
-  - GEOIP,CN,DIRECT
-
-  # =====================
-  # 🐟 兜底
-  # =====================
-  - MATCH,🐟 漏网之鱼
+  # ===== fallback =====
+  - name: FINAL
+    type: select
+    proxies:
+      - PROXY
+      - DIRECT
